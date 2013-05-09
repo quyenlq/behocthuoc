@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{33924623-5AB4-49AF-A1CD-6485BD7D4219}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BeHocThuoc</RootNamespace>
+    <AssemblyName>BeHocThuoc</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PackageCertificateKeyFile>BeHocThuoc_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LongMode.xaml.cs">
+      <DependentUpon>LongMode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QuickMode.xaml.cs">
+      <DependentUpon>QuickMode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SelectModePage.xaml.cs">
+      <DependentUpon>SelectModePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StartPage.xaml.cs">
+      <DependentUpon>StartPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GroupedItemsPage.xaml.cs">
+      <DependentUpon>GroupedItemsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GroupDetailPage.xaml.cs">
+      <DependentUpon>GroupDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ItemDetailPage.xaml.cs">
+      <DependentUpon>ItemDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DataModel\SampleDataSource.cs" />
+    <Compile Include="Common\BindableBase.cs" />
+    <Compile Include="Common\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Common\BooleanNegationConverter.cs" />
+    <Compile Include="Common\LayoutAwarePage.cs" />
+    <Compile Include="Common\RichTextColumns.cs" />
+    <Compile Include="Common\SuspensionManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <None Include="Common\ReadMe.txt" />
+    <None Include="BeHocThuoc_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Animal\animal.jpg" />
+    <Content Include="Assets\Animal\b_01.jpg" />
+    <Content Include="Assets\Animal\b_02.jpg" />
+    <Content Include="Assets\Animal\b_03.jpg" />
+    <Content Include="Assets\Animal\b_04.jpg" />
+    <Content Include="Assets\Animal\b_05.jpg" />
+    <Content Include="Assets\Animal\b_06.jpg" />
+    <Content Include="Assets\Animal\b_07.jpg" />
+    <Content Include="Assets\Animal\b_08.jpg" />
+    <Content Include="Assets\Animal\b_09.jpg" />
+    <Content Include="Assets\Animal\b_10.jpg" />
+    <Content Include="Assets\Animal\b_11.jpg" />
+    <Content Include="Assets\Animal\b_12.jpg" />
+    <Content Include="Assets\Animal\b_13.jpg" />
+    <Content Include="Assets\Animal\b_14.jpg" />
+    <Content Include="Assets\Animal\b_15.jpg" />
+    <Content Include="Assets\Animal\b_16.jpg" />
+    <Content Include="Assets\Animal\b_17.jpg" />
+    <Content Include="Assets\background01.png" />
+    <Content Include="Assets\big-logo.png" />
+    <Content Include="Assets\choinao-down.png" />
+    <Content Include="Assets\choinao-up.png" />
+    <Content Include="Assets\flowbackground.jpg" />
+    <Content Include="Assets\Animal\f_01.jpg" />
+    <Content Include="Assets\Animal\f_02.jpg" />
+    <Content Include="Assets\Animal\f_03.jpg" />
+    <Content Include="Assets\Animal\f_04.jpg" />
+    <Content Include="Assets\Animal\f_05.jpg" />
+    <Content Include="Assets\Animal\f_06.jpg" />
+    <Content Include="Assets\Animal\f_07.jpg" />
+    <Content Include="Assets\Animal\f_08.jpg" />
+    <Content Include="Assets\Animal\f_09.jpg" />
+    <Content Include="Assets\Animal\f_10.jpg" />
+    <Content Include="Assets\Animal\f_11.jpg" />
+    <Content Include="Assets\Animal\f_12.jpg" />
+    <Content Include="Assets\Animal\f_13.jpg" />
+    <Content Include="Assets\Animal\f_14.jpg" />
+    <Content Include="Assets\Animal\f_15.jpg" />
+    <Content Include="Assets\Animal\f_16.jpg" />
+    <Content Include="Assets\Animal\f_17.jpg" />
+    <Content Include="Assets\Funiture\b_01.jpg" />
+    <Content Include="Assets\Funiture\b_02.jpg" />
+    <Content Include="Assets\Funiture\b_03.jpg" />
+    <Content Include="Assets\Funiture\b_04.jpg" />
+    <Content Include="Assets\Funiture\b_05.jpg" />
+    <Content Include="Assets\Funiture\b_06.jpg" />
+    <Content Include="Assets\Funiture\b_07.jpg" />
+    <Content Include="Assets\Funiture\b_08.jpg" />
+    <Content Include="Assets\Funiture\b_09.jpg" />
+    <Content Include="Assets\Funiture\b_10.jpg" />
+    <Content Include="Assets\Funiture\funiture.jpg" />
+    <Content Include="Assets\Funiture\f_01.jpg" />
+    <Content Include="Assets\Funiture\f_02.jpg" />
+    <Content Include="Assets\Funiture\f_03.jpg" />
+    <Content Include="Assets\Funiture\f_04.jpg" />
+    <Content Include="Assets\Funiture\f_05.jpg" />
+    <Content Include="Assets\Funiture\f_06.jpg" />
+    <Content Include="Assets\Funiture\f_07.jpg" />
+    <Content Include="Assets\Funiture\f_08.jpg" />
+    <Content Include="Assets\Funiture\f_09.jpg" />
+    <Content Include="Assets\Funiture\f_10.jpg" />
+    <Content Include="Assets\gameover_new_game_0.png" />
+    <Content Include="Assets\gameover_new_game_1.png" />
+    <Content Include="Assets\icon_achievement.png" />
+    <Content Include="Assets\Logo.png" />
+    <Content Include="Assets\long.png" />
+    <Content Include="Assets\quick.png" />
+    <Content Include="Assets\small-logo.png" />
+    <Content Include="Assets\SmallLogo.png" />
+    <Content Include="Assets\SplashScreen.png" />
+    <Content Include="Assets\StoreLogo.png" />
+    <Content Include="Assets\LightGray.png" />
+    <Content Include="Assets\MediumGray.png" />
+    <Content Include="Assets\DarkGray.png" />
+    <Content Include="Assets\thuvien-down.png" />
+    <Content Include="Assets\thuvien-up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="LongMode.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QuickMode.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SelectModePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StartPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\StandardStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GroupedItemsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GroupDetailPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ItemDetailPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
+    <VisualStudioVersion>11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

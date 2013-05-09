@@ -1,0 +1,59 @@
+﻿<Page
+    x:Class="BeHocThuoc.SelectModePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BeHocThuoc"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:common="using:BeHocThuoc.Common"
+    mc:Ignorable="d">
+
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+        <Grid>
+            <Grid.Background>
+                <ImageBrush ImageSource="/Assets/background01.png"></ImageBrush>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="140"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button x:Name="backButton" Click="GoBack" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}"
+                    Style="{StaticResource BackButtonStyle}" Margin="48,0,0,25" />
+                <Image Source="Assets/small-logo.png" Grid.Column="1" Margin="0,21,806,-21"></Image>
+            </Grid>
+            <Grid Height="550" Grid.Row="1" HorizontalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="400"/>
+                    <ColumnDefinition Width="400"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" BorderThickness="0" Click="Quick_Clicked" >
+                    <Grid>
+                        <Image Source="../Assets/quick.png" Width="400" Height="500" >
+                        </Image>
+                        <Grid Background="White" Opacity="0.1" Margin="0,430,0,0" ></Grid>
+                        <TextBlock Grid.Row="1" Text="DỄ" VerticalAlignment="Bottom" Foreground="Black"
+                               TextAlignment="Center" FontSize="50" >
+                        </TextBlock>
+                    </Grid>
+                </Button>
+
+
+                <Button Grid.Column="1" BorderThickness="0" Click="Long_Clicked" >
+                    <Grid>
+                        <Image Source="../Assets/long.png" Width="400" Height="500" >
+                        </Image>
+                        <Grid Background="White" Opacity="0.1" Margin="0,430,0,0" ></Grid>
+                        <TextBlock Grid.Row="1" Text="KHÓ" VerticalAlignment="Bottom" Foreground="Black"
+                               TextAlignment="Center" FontSize="50" >
+                        </TextBlock>
+                    </Grid>
+                </Button>
+               
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>
