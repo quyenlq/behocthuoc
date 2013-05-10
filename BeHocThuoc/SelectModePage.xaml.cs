@@ -11,7 +11,7 @@ namespace BeHocThuoc
     /// </summary>
     public sealed partial class SelectModePage : Page
     {
-        public SelectModePage()
+        public SelectModePage ()
         {
             this.InitializeComponent();
         }
@@ -21,25 +21,24 @@ namespace BeHocThuoc
         /// </summary>
         /// <param name="e">Event data that describes how this page was reached.  The Parameter
         /// property is typically used to configure the page.</param>
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected override void OnNavigatedTo (NavigationEventArgs e)
         {
         }
 
 
-        private void Long_Clicked(object sender, RoutedEventArgs e)
+        private void Long_Clicked (object sender, RoutedEventArgs e)
         {
-//            this.Frame.Navigate(typeof (LongMode));
+            this.Frame.Navigate(typeof (LongMode));
         }
 
-        private void Quick_Clicked(object sender, RoutedEventArgs e)
+        private void Quick_Clicked (object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(QuickMode));
+            this.Frame.Navigate(typeof (QuickMode));
         }
 
-        private void GoBack(object sender, RoutedEventArgs e)
+        private void GoBack (object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof (StartPage));
         }
-
     }
 }

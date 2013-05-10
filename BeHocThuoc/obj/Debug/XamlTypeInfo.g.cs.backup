@@ -112,23 +112,25 @@ namespace BeHocThuoc.BeHocThuoc_XamlTypeInfo
             }
         }
 
-        private object Activate_0_LongMode() { return new global::BeHocThuoc.LongMode(); }
+        private object Activate_0_LayoutAwarePage() { return new global::BeHocThuoc.Common.LayoutAwarePage(); }
 
-        private object Activate_1_LayoutAwarePage() { return new global::BeHocThuoc.Common.LayoutAwarePage(); }
+        private object Activate_1_LongMode() { return new global::BeHocThuoc.LongMode(); }
 
         private object Activate_2_QuickMode() { return new global::BeHocThuoc.QuickMode(); }
 
-        private object Activate_3_SelectModePage() { return new global::BeHocThuoc.SelectModePage(); }
+        private object Activate_3_QuickTest() { return new global::BeHocThuoc.QuickTest(); }
 
-        private object Activate_4_StartPage() { return new global::BeHocThuoc.StartPage(); }
+        private object Activate_4_SelectModePage() { return new global::BeHocThuoc.SelectModePage(); }
 
-        private object Activate_5_GroupedItemsPage() { return new global::BeHocThuoc.GroupedItemsPage(); }
+        private object Activate_5_StartPage() { return new global::BeHocThuoc.StartPage(); }
 
-        private object Activate_6_GroupDetailPage() { return new global::BeHocThuoc.GroupDetailPage(); }
+        private object Activate_6_GroupedItemsPage() { return new global::BeHocThuoc.GroupedItemsPage(); }
 
-        private object Activate_7_RichTextColumns() { return new global::BeHocThuoc.Common.RichTextColumns(); }
+        private object Activate_7_GroupDetailPage() { return new global::BeHocThuoc.GroupDetailPage(); }
 
-        private object Activate_8_ItemDetailPage() { return new global::BeHocThuoc.ItemDetailPage(); }
+        private object Activate_8_RichTextColumns() { return new global::BeHocThuoc.Common.RichTextColumns(); }
+
+        private object Activate_9_ItemDetailPage() { return new global::BeHocThuoc.ItemDetailPage(); }
 
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(string typeName)
@@ -158,15 +160,15 @@ namespace BeHocThuoc.BeHocThuoc_XamlTypeInfo
                 xamlType = new global::BeHocThuoc.BeHocThuoc_XamlTypeInfo.XamlSystemBaseType(typeName, typeof(global::Windows.UI.Xaml.DataTemplate));
                 break;
 
-            case "BeHocThuoc.LongMode":
-                userType = new global::BeHocThuoc.BeHocThuoc_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::BeHocThuoc.LongMode), GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_0_LongMode;
+            case "BeHocThuoc.Common.LayoutAwarePage":
+                userType = new global::BeHocThuoc.BeHocThuoc_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::BeHocThuoc.Common.LayoutAwarePage), GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_0_LayoutAwarePage;
                 xamlType = userType;
                 break;
 
-            case "BeHocThuoc.Common.LayoutAwarePage":
-                userType = new global::BeHocThuoc.BeHocThuoc_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::BeHocThuoc.Common.LayoutAwarePage), GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_1_LayoutAwarePage;
+            case "BeHocThuoc.LongMode":
+                userType = new global::BeHocThuoc.BeHocThuoc_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::BeHocThuoc.LongMode), GetXamlTypeByName("BeHocThuoc.Common.LayoutAwarePage"));
+                userType.Activator = Activate_1_LongMode;
                 xamlType = userType;
                 break;
 
@@ -176,33 +178,39 @@ namespace BeHocThuoc.BeHocThuoc_XamlTypeInfo
                 xamlType = userType;
                 break;
 
+            case "BeHocThuoc.QuickTest":
+                userType = new global::BeHocThuoc.BeHocThuoc_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::BeHocThuoc.QuickTest), GetXamlTypeByName("BeHocThuoc.Common.LayoutAwarePage"));
+                userType.Activator = Activate_3_QuickTest;
+                xamlType = userType;
+                break;
+
             case "BeHocThuoc.SelectModePage":
                 userType = new global::BeHocThuoc.BeHocThuoc_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::BeHocThuoc.SelectModePage), GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_3_SelectModePage;
+                userType.Activator = Activate_4_SelectModePage;
                 xamlType = userType;
                 break;
 
             case "BeHocThuoc.StartPage":
                 userType = new global::BeHocThuoc.BeHocThuoc_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::BeHocThuoc.StartPage), GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_4_StartPage;
+                userType.Activator = Activate_5_StartPage;
                 xamlType = userType;
                 break;
 
             case "BeHocThuoc.GroupedItemsPage":
                 userType = new global::BeHocThuoc.BeHocThuoc_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::BeHocThuoc.GroupedItemsPage), GetXamlTypeByName("BeHocThuoc.Common.LayoutAwarePage"));
-                userType.Activator = Activate_5_GroupedItemsPage;
+                userType.Activator = Activate_6_GroupedItemsPage;
                 xamlType = userType;
                 break;
 
             case "BeHocThuoc.GroupDetailPage":
                 userType = new global::BeHocThuoc.BeHocThuoc_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::BeHocThuoc.GroupDetailPage), GetXamlTypeByName("BeHocThuoc.Common.LayoutAwarePage"));
-                userType.Activator = Activate_6_GroupDetailPage;
+                userType.Activator = Activate_7_GroupDetailPage;
                 xamlType = userType;
                 break;
 
             case "BeHocThuoc.Common.RichTextColumns":
                 userType = new global::BeHocThuoc.BeHocThuoc_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::BeHocThuoc.Common.RichTextColumns), GetXamlTypeByName("Windows.UI.Xaml.Controls.Panel"));
-                userType.Activator = Activate_7_RichTextColumns;
+                userType.Activator = Activate_8_RichTextColumns;
                 userType.SetContentPropertyName("BeHocThuoc.Common.RichTextColumns.RichTextContent");
                 userType.AddMemberName("RichTextContent");
                 userType.AddMemberName("ColumnTemplate");
@@ -211,7 +219,7 @@ namespace BeHocThuoc.BeHocThuoc_XamlTypeInfo
 
             case "BeHocThuoc.ItemDetailPage":
                 userType = new global::BeHocThuoc.BeHocThuoc_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::BeHocThuoc.ItemDetailPage), GetXamlTypeByName("BeHocThuoc.Common.LayoutAwarePage"));
-                userType.Activator = Activate_8_ItemDetailPage;
+                userType.Activator = Activate_9_ItemDetailPage;
                 xamlType = userType;
                 break;
 
