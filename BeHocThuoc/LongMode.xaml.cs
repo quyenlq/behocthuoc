@@ -11,7 +11,6 @@ using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -64,7 +63,9 @@ namespace BeHocThuoc
                 randomCards.Clear();
 
             var rnd = new Random();
+            // random group index
             var groupIndex = rnd.Next(0, SampleDataSource.GetGroups("AllGroups").Count());
+
             for (int i = 0; i < 6; i++) {
                 int cindex = rnd.Next(0, SampleDataSource.GetGroup(groupIndex).Items.Count);
                 var card = SampleDataSource.GetCards()[cindex];

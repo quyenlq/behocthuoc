@@ -30,7 +30,7 @@
             <GridView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal" >
-                        <Image Width="260" Height="160" Source="{Binding DisplayImage}"
+                        <Image Width="387" Height="234" Source="{Binding DisplayImage}"
                                Tapped="Toogle_Card" ></Image>
                     </StackPanel>
                 </DataTemplate>

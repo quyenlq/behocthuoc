@@ -30,7 +30,7 @@
             <GridView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal" >
-                        <Image x:ConnectionId='2' Width="260" Height="160" Source="{Binding DisplayImage}"
+                        <Image x:ConnectionId='2' Width="387" Height="234" Source="{Binding DisplayImage}"
                                                     ></Image>
                     </StackPanel>
                 </DataTemplate>
