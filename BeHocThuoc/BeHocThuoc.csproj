@@ -113,6 +113,9 @@
     <Compile Include="QuickMode.xaml.cs">
       <DependentUpon>QuickMode.xaml</DependentUpon>
     </Compile>
+    <Compile Include="QuickTest.xaml.cs">
+      <DependentUpon>QuickTest.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SelectModePage.xaml.cs">
       <DependentUpon>SelectModePage.xaml</DependentUpon>
     </Compile>
@@ -232,6 +235,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="QuickMode.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QuickTest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

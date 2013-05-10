@@ -1,1 +1,1 @@
-C:\Users\Luc\documents\visual studio 2012\Projects\BeHocThuoc\BeHocThuoc\BeHocThuoc.csproj;neutral
+C:\MyCode\1_VisualStudio2012\behocthuoc\BeHocThuoc\BeHocThuoc.csproj;neutral

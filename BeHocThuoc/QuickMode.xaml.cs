@@ -32,7 +32,7 @@ namespace BeHocThuoc
         private MessageDialog messageDialog1;
         private Boolean test;
 
-        public QuickMode()
+        public QuickMode ()
         {
             InitializeComponent();
             GameInitialize();
@@ -46,12 +46,12 @@ namespace BeHocThuoc
         /// 
         /// 
         /// 
-        protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
+        protected override void LoadState (Object navigationParameter, Dictionary<String, Object> pageState)
         {
         }
 
 
-        private void GameInitialize()
+        private void GameInitialize ()
         {
             GetRandomCards();
             PlayGround.DataContext = randomCards;
@@ -59,29 +59,26 @@ namespace BeHocThuoc
             test = false;
         }
 
-        
-        private void GetRandomCards()
+
+        private void GetRandomCards ()
         {
-            if(randomCards!=null)
+            if (randomCards != null)
                 randomCards.Clear();
-            
+
             var rnd = new Random();
             var groupIndex = rnd.Next(0, SampleDataSource.GetGroups("AllGroups").Count());
-            for (int i = 0; i < 4; i++)
-            {
+            for (int i = 0; i < 4; i++) {
                 int cindex = rnd.Next(0, SampleDataSource.GetGroup(groupIndex).Items.Count);
                 var card = SampleDataSource.GetCards()[cindex];
-                while(randomCards.Contains(card))
-                {
+                while (randomCards.Contains(card)) {
                     card = SampleDataSource.GetCards()[cindex];
                 }
                 card.DisplayImage = card.FrontImage;
                 randomCards.Add(card);
             }
-
         }
 
-        private void Start_Timer(int seconds)
+        private void Start_Timer (int seconds)
         {
             timer.Interval = TimeSpan.FromSeconds(1);
             EndTime = DateTime.Now.AddSeconds(seconds);
@@ -89,47 +86,49 @@ namespace BeHocThuoc
             timer.Start();
         }
 
-        private void Timer_Tick(object sender, object e)
+        private void Timer_Tick (object sender, object e)
         {
             TimeSpan timeleft = EndTime - DateTime.Now;
             TimeField.Text = ((int) timeleft.TotalSeconds).ToString();
-            if ((int) timeleft.TotalSeconds < 6)
-            {
+            if ((int) timeleft.TotalSeconds < 6) {
                 TimeField.Foreground = new SolidColorBrush(Colors.Orange);
             }
-            if ((int) timeleft.TotalSeconds <= 3)
-            {
+            if ((int) timeleft.TotalSeconds <= 3) {
                 TimeField.Foreground = new SolidColorBrush(Colors.Red);
             }
-            if ((int) timeleft.TotalSeconds <= 0)
-            {
+            if ((int) timeleft.TotalSeconds <= 0) {
                 timer.Stop();
                 if (cmd != null) cmd.Cancel();
-                if (test == false)
-                {
+                if (test == false) {
                     messageDialog1 = new MessageDialog("Bé đã sẵn sàng làm bài kiểm tra chưa?", "HẾT GIỜ RỒI!!!");
                     messageDialog1.Commands.Add(new UICommand("Rồi",
                                                               (command) =>
                                                               Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
                                                                                   () =>
-                                                                                      {
-                                                                                          Toogle_All_Cards();
-                                                                                          Start_Timer(DURATION);
-                                                                                          test = true;
-                                                                                      })));
+                                                                                  {
+                                                                                      Toogle_All_Cards();
+                                                                                      Start_Timer(DURATION);
+                                                                                      test = true;
+                                                                                  })));
                     messageDialog1.Commands.Add(new UICommand("Chưa",
                                                               (command) =>
                                                               Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
                                                                                   () => Start_Timer(10))));
                     ;
-                    
+
                     cmd = messageDialog1.ShowAsync();
-                }
-                else
-                {
+                } else {
                     messageDialog1 = new MessageDialog("Bé có muốn chơi lại không?", "HẾT GIỜ RỒI!!!");
-                    messageDialog1.Commands.Add(new UICommand("Có", (command) => { Frame.Navigate(typeof(QuickMode)); timer.Stop(); }));
-                    messageDialog1.Commands.Add(new UICommand("Không", (command) => { Frame.Navigate(typeof (StartPage)); timer.Stop(); }));
+                    messageDialog1.Commands.Add(new UICommand("Có", (command) =>
+                                                                    {
+                                                                        Frame.Navigate(typeof (QuickMode));
+                                                                        timer.Stop();
+                                                                    }));
+                    messageDialog1.Commands.Add(new UICommand("Không", (command) =>
+                                                                       {
+                                                                           Frame.Navigate(typeof (StartPage));
+                                                                           timer.Stop();
+                                                                       }));
                     ;
                     cmd = messageDialog1.ShowAsync();
                 }
@@ -137,30 +136,26 @@ namespace BeHocThuoc
         }
 
 
-        private void Toogle_Card(object sender, TappedRoutedEventArgs e)
+        private void Toogle_Card (object sender, TappedRoutedEventArgs e)
         {
-
             var card = PlayGround.SelectedItem as Card;
             if (card == null) return;
-            if (card.DisplayImage == card.BackImage)
-            {
+            if (card.DisplayImage == card.BackImage) {
                 card.DisplayImage = card.FrontImage;
-            }
-            else card.DisplayImage = card.BackImage;
+            } else card.DisplayImage = card.BackImage;
         }
 
 
-        private void Toogle_All_Cards()
+        private void Toogle_All_Cards ()
         {
-            foreach (var card in randomCards)
-            {
+            foreach (var card in randomCards) {
                 card.DisplayImage = card.BackImage;
             }
         }
 
-        protected override void GoBack(object sender, RoutedEventArgs e)
+        protected override void GoBack (object sender, RoutedEventArgs e)
         {
-            if(timer!=null) timer.Stop();
+            if (timer != null) timer.Stop();
             base.GoBack(sender, e);
         }
     }

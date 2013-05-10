@@ -81,5 +81,6 @@ GroupedItemsPage.xaml
 ItemDetailPage.xaml
 LongMode.xaml
 QuickMode.xaml
+QuickTest.xaml
 SelectModePage.xaml
 StartPage.xaml
