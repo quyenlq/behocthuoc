@@ -62,16 +62,20 @@ namespace BeHocThuoc
             if (randomCards != null)
                 randomCards.Clear();
 
-            var rnd = new Random();
+            var rnd = new Random(DateTime.Now.Millisecond);
             // random group index
             var groupIndex = rnd.Next(0, SampleDataSource.GetGroups("AllGroups").Count());
 
+            //create tmp list
+            var tmpList = new ObservableCollection<Card>();
+            foreach (Card t in SampleDataSource.GetGroup(groupIndex).Items) {
+                tmpList.Add(t);
+            }
+
             for (int i = 0; i < 6; i++) {
-                int cindex = rnd.Next(0, SampleDataSource.GetGroup(groupIndex).Items.Count);
-                var card = SampleDataSource.GetCards()[cindex];
-                while (randomCards.Contains(card)) {
-                    card = SampleDataSource.GetCards()[cindex];
-                }
+                int cindex = rnd.Next(0, tmpList.Count);
+                var card = tmpList[cindex];
+                tmpList.Remove(card);
                 card.DisplayImage = card.FrontImage;
                 randomCards.Add(card);
             }
