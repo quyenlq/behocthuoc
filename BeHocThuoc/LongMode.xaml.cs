@@ -21,7 +21,7 @@ namespace BeHocThuoc
     /// </summary>
     public sealed partial class LongMode : LayoutAwarePage
     {
-        private const int DURATION = 30;
+        private const int DURATION = 60;
         private ObservableCollection<Card> randomCards = new ObservableCollection<Card>();
         private readonly DispatcherTimer timer = new DispatcherTimer();
         private DateTime EndTime;

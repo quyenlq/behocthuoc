@@ -21,7 +21,7 @@ namespace BeHocThuoc
     /// </summary>
     public sealed partial class QuickMode : LayoutAwarePage
     {
-        private const int DURATION = 3;
+        private const int DURATION = 30;
         private readonly DispatcherTimer timer = new DispatcherTimer();
         private DateTime EndTime;
         private MessageDialog messageDialog1;
