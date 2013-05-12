@@ -113,8 +113,8 @@
     <Compile Include="QuickMode.xaml.cs">
       <DependentUpon>QuickMode.xaml</DependentUpon>
     </Compile>
-    <Compile Include="QuickTest.xaml.cs">
-      <DependentUpon>QuickTest.xaml</DependentUpon>
+    <Compile Include="TestPage.xaml.cs">
+      <DependentUpon>TestPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="SelectModePage.xaml.cs">
       <DependentUpon>SelectModePage.xaml</DependentUpon>
@@ -149,6 +149,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Animal\animal.jpg" />
+    <Content Include="Assets\Animal\animal2.jpg" />
     <Content Include="Assets\Animal\b_01.jpg" />
     <Content Include="Assets\Animal\b_02.jpg" />
     <Content Include="Assets\Animal\b_03.jpg" />
@@ -168,8 +169,16 @@
     <Content Include="Assets\Animal\b_17.jpg" />
     <Content Include="Assets\background01.png" />
     <Content Include="Assets\big-logo.png" />
+    <Content Include="Assets\choilai-down.png" />
+    <Content Include="Assets\choilai-up.png" />
     <Content Include="Assets\choinao-down.png" />
     <Content Include="Assets\choinao-up.png" />
+    <Content Include="Assets\chua-down.png" />
+    <Content Include="Assets\chua-up.png" />
+    <Content Include="Assets\de-down.png" />
+    <Content Include="Assets\de-up.png" />
+    <Content Include="Assets\doithe-down.png" />
+    <Content Include="Assets\doithe-up.png" />
     <Content Include="Assets\flowbackground.jpg" />
     <Content Include="Assets\Animal\f_01.jpg" />
     <Content Include="Assets\Animal\f_02.jpg" />
@@ -199,6 +208,7 @@
     <Content Include="Assets\Funiture\b_09.jpg" />
     <Content Include="Assets\Funiture\b_10.jpg" />
     <Content Include="Assets\Funiture\funiture.jpg" />
+    <Content Include="Assets\Funiture\funiture2.jpg" />
     <Content Include="Assets\Funiture\f_01.jpg" />
     <Content Include="Assets\Funiture\f_02.jpg" />
     <Content Include="Assets\Funiture\f_03.jpg" />
@@ -209,21 +219,69 @@
     <Content Include="Assets\Funiture\f_08.jpg" />
     <Content Include="Assets\Funiture\f_09.jpg" />
     <Content Include="Assets\Funiture\f_10.jpg" />
-    <Content Include="Assets\gameover_new_game_0.png" />
-    <Content Include="Assets\gameover_new_game_1.png" />
-    <Content Include="Assets\icon_achievement.png" />
+    <Content Include="Assets\goiy-down.png" />
+    <Content Include="Assets\goiy-up.png" />
+    <Content Include="Assets\kho-down.png" />
+    <Content Include="Assets\kho-up.png" />
+    <Content Include="Assets\khong-down.png" />
+    <Content Include="Assets\khong-up.png" />
+    <Content Include="Assets\Landmark\b_01.jpg" />
+    <Content Include="Assets\Landmark\b_02.jpg" />
+    <Content Include="Assets\Landmark\b_03.jpg" />
+    <Content Include="Assets\Landmark\b_04.jpg" />
+    <Content Include="Assets\Landmark\b_05.jpg" />
+    <Content Include="Assets\Landmark\b_06.jpg" />
+    <Content Include="Assets\Landmark\b_07.jpg" />
+    <Content Include="Assets\Landmark\b_08.jpg" />
+    <Content Include="Assets\Landmark\b_09.jpg" />
+    <Content Include="Assets\Landmark\f_01.jpg" />
+    <Content Include="Assets\Landmark\f_02.jpg" />
+    <Content Include="Assets\Landmark\f_03.jpg" />
+    <Content Include="Assets\Landmark\f_04.jpg" />
+    <Content Include="Assets\Landmark\f_05.jpg" />
+    <Content Include="Assets\Landmark\f_06.jpg" />
+    <Content Include="Assets\Landmark\f_07.jpg" />
+    <Content Include="Assets\Landmark\f_08.jpg" />
+    <Content Include="Assets\Landmark\f_09.jpg" />
     <Content Include="Assets\Logo.png" />
     <Content Include="Assets\long.png" />
     <Content Include="Assets\quick.png" />
+    <Content Include="Assets\roi-down.png" />
+    <Content Include="Assets\roi-up.png" />
     <Content Include="Assets\small-logo.png" />
     <Content Include="Assets\SmallLogo.png" />
     <Content Include="Assets\SplashScreen.png" />
+    <Content Include="Assets\Sticky-Note1.png" />
+    <Content Include="Assets\Sticky-Note2.png" />
+    <Content Include="Assets\Sticky-Note3.png" />
+    <Content Include="Assets\Sticky-Note4.png" />
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Assets\LightGray.png" />
     <Content Include="Assets\MediumGray.png" />
     <Content Include="Assets\DarkGray.png" />
     <Content Include="Assets\thuvien-down.png" />
     <Content Include="Assets\thuvien-up.png" />
+    <Content Include="Assets\tieptuc-down.png" />
+    <Content Include="Assets\tieptuc-up.png" />
+    <Content Include="Assets\Times and Dates.png" />
+    <Content Include="Assets\Vegetable\b_01.jpg" />
+    <Content Include="Assets\Vegetable\b_02.jpg" />
+    <Content Include="Assets\Vegetable\b_03.jpg" />
+    <Content Include="Assets\Vegetable\b_04.jpg" />
+    <Content Include="Assets\Vegetable\b_05.jpg" />
+    <Content Include="Assets\Vegetable\b_06.jpg" />
+    <Content Include="Assets\Vegetable\b_07.jpg" />
+    <Content Include="Assets\Vegetable\b_08.jpg" />
+    <Content Include="Assets\Vegetable\b_09.jpg" />
+    <Content Include="Assets\Vegetable\f_01.jpg" />
+    <Content Include="Assets\Vegetable\f_02.jpg" />
+    <Content Include="Assets\Vegetable\f_03.jpg" />
+    <Content Include="Assets\Vegetable\f_04.jpg" />
+    <Content Include="Assets\Vegetable\f_05.jpg" />
+    <Content Include="Assets\Vegetable\f_06.jpg" />
+    <Content Include="Assets\Vegetable\f_07.jpg" />
+    <Content Include="Assets\Vegetable\f_08.jpg" />
+    <Content Include="Assets\Vegetable\f_09.jpg" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -238,7 +296,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="QuickTest.xaml">
+    <Page Include="TestPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -25,6 +25,29 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
+        <TextBlock x:Name="txtTut" Text="Caùch chôi: Laät caùc theû vaø ghi nhôù chuùng caøng nhanh caøng toát"
+                       Foreground="White" Grid.Row="1" FontFamily="VfFree13" Style="{StaticResource BodyTextStyle}" FontSize="25"
+                       TextAlignment="Center" VerticalAlignment="Center" Margin="1,3,-1,605">
+            <TextBlock.Triggers>
+                <EventTrigger RoutedEvent="TextBlock.Loaded">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard Duration="0:0:4" RepeatBehavior="Forever">
+                                <ColorAnimationUsingKeyFrames
+                                    Storyboard.TargetProperty="(Foreground).(SolidColorBrush.Color)" Storyboard.TargetName="txtTut" AutoReverse="True">
+                                    <ColorAnimationUsingKeyFrames.KeyFrames>
+                                        <DiscreteColorKeyFrame KeyTime="0:0:1" Value="Black" />
+                                        <DiscreteColorKeyFrame KeyTime="0:0:2" Value="White" />
+                                        <DiscreteColorKeyFrame KeyTime="0:0:3" Value="Black" />
+                                        <DiscreteColorKeyFrame KeyTime="0:0:4" Value="White" />
+                                    </ColorAnimationUsingKeyFrames.KeyFrames>
+                                </ColorAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </TextBlock.Triggers>
+        </TextBlock>
         <GridView Name="PlayGround" ItemsSource="{Binding}" Grid.Row="1" VerticalAlignment="Center"
                   HorizontalAlignment="Center" >
             <GridView.ItemTemplate>
@@ -42,17 +65,42 @@
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-
-            <Button x:Name="backButton" Click="GoBack"
-                    IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}"
+            <Button x:Name="backButton" Click="GoBack" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}"
                     Style="{StaticResource BackButtonStyle}" Margin="48,0,0,25" />
-
-            <Image Source="Assets/small-logo.png" Grid.Column="1" Margin="0,21,806,-21" ></Image>
+            <TextBlock x:Name="pageTitle" Text="Beù Hoïc Thuoäc" Style="{StaticResource PageHeaderTextStyle}"
+                       Grid.Column="1" IsHitTestVisible="false" Margin="21,0,9,28" FontFamily="VfFree13" FontWeight="Bold" />
 
             <TextBlock Style="{StaticResource PageHeaderTextStyle}" HorizontalAlignment="Center"
-                       VerticalAlignment="Center" TextWrapping="Wrap" Text="29" Height="45" Width="68" FontFamily="Pointy"
-                       Name="TimeField" Margin="1105,71,73,24" Grid.Column="1" />
+                       VerticalAlignment="Center" TextWrapping="Wrap" Text="29" Height="45" Width="68" FontFamily="VfFree13" Name="TimeField"
+                       Margin="1105,71,73,24" Grid.Column="1" />
+            <Image Source="/Assets/Times and Dates.png" Width="50" Height="50" Grid.Column="1" Margin="1055,71,165,19"></Image>
         </Grid>
+        
+        <Popup Margin="433,160,433,41" Width="500" Grid.RowSpan="3" x:Name="TimesUpPopup">
+            <Popup.ChildTransitions>
+                <TransitionCollection>
+                    <PopupThemeTransition />
+                </TransitionCollection>
+            </Popup.ChildTransitions>
 
+            <Grid Width="500" Height="500" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Grid.Background>
+                    <ImageBrush ImageSource="/Assets/Sticky-Note1.png"></ImageBrush>
+                </Grid.Background>
+                <TextBlock x:Name="resultTxt" FontFamily="VfFree13" Foreground="Green" Text="" FontSize="40"
+                               VerticalAlignment="Bottom" Margin="298,0,10,211"></TextBlock>
+                <Grid Width="350" Margin="70,220,75,124" RenderTransformOrigin="0.5,0.5">
+                    <Grid.RenderTransform>
+                        <CompositeTransform Rotation="2" />
+                    </Grid.RenderTransform>
+                    <Button Content="" Template="{StaticResource OkButton}" VerticalAlignment="Bottom"
+                                HorizontalAlignment="Center" Click="OK_Clicked" Margin="15.474,0,182.525,0" UseLayoutRounding="False"
+                                d:LayoutRounding="Auto" />
+                    <Button Content="" Template="{StaticResource NotYetButton}" VerticalAlignment="Bottom"
+                                HorizontalAlignment="Center" Click="NotYet_Clicked" Margin="160,0,0,0" />
+                </Grid>
+            </Grid>
+
+        </Popup>
     </Grid>
 </common:LayoutAwarePage>

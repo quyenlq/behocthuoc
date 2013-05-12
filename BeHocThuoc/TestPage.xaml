@@ -1,0 +1,225 @@
+﻿<common:LayoutAwarePage x:Name="pageRoot" x:Class="BeHocThuoc.TestPage"
+                        DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
+                        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="using:BeHocThuoc"
+                        xmlns:common="using:BeHocThuoc.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d">
+
+    <Page.Resources>
+        <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
+        <CollectionViewSource x:Name="groupedItemsViewSource" Source="{Binding Cards}"></CollectionViewSource>
+    </Page.Resources>
+
+
+    <!--
+        This grid acts as a root panel for the page that defines two rows:
+        * Row 0 contains the back button and page title
+        * Row 1 contains the rest of the page layout
+    -->
+    <Grid Style="{StaticResource LayoutRootStyle}">
+        <Grid.Background>
+            <ImageBrush ImageSource="Assets/background01.png"></ImageBrush>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="140" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Back button and page title -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button x:Name="backButton" Click="GoBack" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}"
+                    Style="{StaticResource BackButtonStyle}" Margin="48,0,0,25" />
+            <TextBlock x:Name="pageTitle" Text="Beù Hoïc Thuoäc" Style="{StaticResource PageHeaderTextStyle}"
+                       Grid.Column="1" IsHitTestVisible="false" Margin="21,0,9,28" FontFamily="VfFree13" FontWeight="Bold" />
+
+            <TextBlock Style="{StaticResource PageHeaderTextStyle}" HorizontalAlignment="Center"
+                       VerticalAlignment="Center" TextWrapping="Wrap" Text="29" Height="45" Width="68" FontFamily="VfFree13" Name="TimeField"
+                       Margin="1105,71,73,24" Grid.Column="1" />
+            <TextBlock Style="{StaticResource PageHeaderTextStyle}" HorizontalAlignment="Center"
+                       VerticalAlignment="Center" TextWrapping="Wrap" Text="Traø lôøi ñuùng: 0/2" Height="45" Width="500"
+                       FontFamily="VfFree13" Name="Result" Margin="587,73,183,22" Grid.Column="1" FontSize="40" />
+            <Image Source="/Assets/Times and Dates.png" Width="50" Height="50" Grid.Column="1" Margin="1055,71,165,19"></Image>
+        </Grid>
+
+        <!-- Popup Dialog -->
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="320"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            
+           
+            <!--Top part-->
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="370"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="370"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Height="120" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,100,516,100">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="9*"/>
+                        <RowDefinition Height="11*"/>
+                    </Grid.RowDefinitions>
+                    <Button Content="" x:Name="btnHint" Template="{StaticResource HintButton}" Click="Hint_Clicked" Margin="101,9,10,0" HorizontalAlignment="Stretch" Grid.RowSpan="2" Height="111"/>
+                </Grid>
+                
+                <GridView Name="AnswerGround" ItemsSource="{Binding}" Grid.Column="1" VerticalAlignment="Center"
+                          HorizontalAlignment="Center">
+                    <GridView.ItemTemplate>
+                        <DataTemplate>
+                            <Image Width="400" Height="320" Source="{Binding DisplayImage}"></Image>
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
+                </GridView>
+            </Grid>
+
+            <TextBlock x:Name="txtTut" Text="Caùch chôi: Choïn theû töông öùng vôùi maët sau cuûa theû phía treân"
+                       Foreground="White" Grid.Row="1" FontFamily="VfFree13" Style="{StaticResource BodyTextStyle}" FontSize="30"
+                       TextAlignment="Center" VerticalAlignment="Center">
+                <TextBlock.Triggers>
+                    <EventTrigger RoutedEvent="TextBlock.Loaded">
+                        <EventTrigger.Actions>
+                            <BeginStoryboard>
+                                <Storyboard Duration="0:0:4" RepeatBehavior="Forever">
+                                    <ColorAnimationUsingKeyFrames
+                                    Storyboard.TargetProperty="(Foreground).(SolidColorBrush.Color)" Storyboard.TargetName="txtTut" AutoReverse="True">
+                                        <ColorAnimationUsingKeyFrames.KeyFrames>
+                                            <DiscreteColorKeyFrame KeyTime="0:0:1" Value="Black" />
+                                            <DiscreteColorKeyFrame KeyTime="0:0:2" Value="White" />
+                                            <DiscreteColorKeyFrame KeyTime="0:0:3" Value="Black" />
+                                            <DiscreteColorKeyFrame KeyTime="0:0:4" Value="White" />
+                                        </ColorAnimationUsingKeyFrames.KeyFrames>
+                                    </ColorAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger.Actions>
+                    </EventTrigger>
+                </TextBlock.Triggers>
+            </TextBlock>
+            <!--Bottom part-->
+            
+            <GridView Name="QuestionGround" ItemsSource="{Binding}" Grid.Row="2" VerticalAlignment="Center"
+                      HorizontalAlignment="Center">
+                <GridView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" Height="200">
+                            <Image Width="250" Height="280" Source="{Binding DisplayImage}" Tapped="Check_Correct"></Image>
+                        </StackPanel>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+            </GridView>
+
+            <Popup Margin="433,0,433,41" Width="500" Grid.RowSpan="3" x:Name="CorrectPopup">
+                <Popup.ChildTransitions>
+                    <TransitionCollection>
+                        <PopupThemeTransition />
+                    </TransitionCollection>
+                </Popup.ChildTransitions>
+                <Grid Width="500" Height="500" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Grid.Background>
+                        <ImageBrush ImageSource="/Assets/Sticky-Note3.png"></ImageBrush>
+                    </Grid.Background>
+                    <Button Content="" Template="{StaticResource NextButton}" VerticalAlignment="Bottom"
+                            HorizontalAlignment="Center" Click="NextBtn_Clicked" Margin="0,0,0,100" RenderTransformOrigin="0.5,0.5">
+                        <Button.RenderTransform>
+                            <CompositeTransform Rotation="2" />
+                        </Button.RenderTransform>
+                    </Button>
+                </Grid>
+            </Popup>
+
+            <Popup Margin="433,0,433,41" Width="500" Grid.RowSpan="3" x:Name="IncorrectPopup">
+                <Popup.ChildTransitions>
+                    <TransitionCollection>
+                        <PopupThemeTransition />
+                    </TransitionCollection>
+                </Popup.ChildTransitions>
+
+                <Grid Width="500" Height="500" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Grid.Background>
+                        <ImageBrush ImageSource="/Assets/Sticky-Note4.png"></ImageBrush>
+                    </Grid.Background>
+                    <Button Content="" Template="{StaticResource NextButton}" VerticalAlignment="Bottom"
+                            HorizontalAlignment="Center" Click="NextBtn_Clicked" Margin="0,0,0,100" RenderTransformOrigin="0.5,0.5">
+                        <Button.RenderTransform>
+                            <CompositeTransform Rotation="2" />
+                        </Button.RenderTransform>
+                    </Button>
+                </Grid>
+
+            </Popup>
+
+            <Popup Margin="433,0,433,41" Width="500" Grid.RowSpan="3" x:Name="FinishPopup">
+                <Popup.ChildTransitions>
+                    <TransitionCollection>
+                        <PopupThemeTransition />
+                    </TransitionCollection>
+                </Popup.ChildTransitions>
+
+                <Grid Width="500" Height="500" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Grid.Background>
+                        <ImageBrush ImageSource="/Assets/Sticky-Note2.png"></ImageBrush>
+                    </Grid.Background>
+                    <TextBlock x:Name="resultTxt" FontFamily="VfFree13" Foreground="Green" Text="" FontSize="40"
+                               VerticalAlignment="Bottom" Margin="298,0,10,211"></TextBlock>
+                    <Grid Width="350" Margin="75,220,75,124" RenderTransformOrigin="0.5,0.5">
+                        <Grid.RenderTransform>
+                            <CompositeTransform Rotation="2" />
+                        </Grid.RenderTransform>
+                        <Button Content="" Template="{StaticResource ReplayButton}" VerticalAlignment="Bottom"
+                                HorizontalAlignment="Center" Click="Replay_Clicked" Margin="15.474,0,182.525,0" UseLayoutRounding="False"
+                                d:LayoutRounding="Auto" />
+                        <Button Content="" Template="{StaticResource ReturnButton}" VerticalAlignment="Bottom"
+                                HorizontalAlignment="Center" Click="Return_Clicked" Margin="160,0,0,0" />
+                    </Grid>
+                </Grid>
+
+            </Popup>
+        </Grid>
+
+
+
+        <!-- test area -->
+
+
+        <VisualStateManager.VisualStateGroups>
+
+            <!-- Visual states reflect the application's view state -->
+            <VisualStateGroup x:Name="ApplicationViewStates">
+                <VisualState x:Name="FullScreenLandscape" />
+                <VisualState x:Name="Filled" />
+
+                <!-- The entire page respects the narrower 100-pixel margin convention for portrait -->
+                <VisualState x:Name="FullScreenPortrait">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="backButton"
+                                                       Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource PortraitBackButtonStyle}" />
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+
+                <!-- The back button and title have different styles when snapped -->
+                <VisualState x:Name="Snapped">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="backButton"
+                                                       Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SnappedBackButtonStyle}" />
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="pageTitle"
+                                                       Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SnappedPageHeaderTextStyle}" />
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+    </Grid>
+</common:LayoutAwarePage>

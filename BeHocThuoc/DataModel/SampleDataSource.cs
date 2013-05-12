@@ -29,8 +29,8 @@ namespace BeHocThuoc.Data
         private ImageSource _back;
         private ImageSource _front;
         private ImageSource _display;
-        private String _imagePath1;
-        private String _imagePath2;
+        public String _imagePath1;
+        public String _imagePath2;
         private string _uniqueId = string.Empty;
 
         public CardCommon(String uniqueId, String imagePath1, String imagePath2)
@@ -125,6 +125,12 @@ namespace BeHocThuoc.Data
             get { return _group; }
             set { SetProperty(ref _group, value); }
         }
+
+        public Card Clone()
+        {
+            Card c = new Card(this.UniqueId,this._imagePath1, this._imagePath2, this.Group);
+            return c;
+        }
     }
 
     /// <summary>
@@ -136,15 +142,17 @@ namespace BeHocThuoc.Data
         private readonly ObservableCollection<Card> _topItem = new ObservableCollection<Card>();
         private ImageSource _image;
         private string _imagePath;
+        private string _imagePath2;
         private string _title;
         private String _uniqueId = string.Empty;
 
-        public Category(String uniqueId, String title, String imagePath)
+        public Category(String uniqueId, String title, String imagePath, String imagePath2)
 
         {
             _uniqueId = uniqueId;
             _title = title;
             _imagePath = imagePath;
+            _imagePath2 = imagePath2;
             Items.CollectionChanged += ItemsCollectionChanged;
         }
 
@@ -174,6 +182,24 @@ namespace BeHocThuoc.Data
             set
             {
                 _imagePath = null;
+                SetProperty(ref _image, value);
+            }
+        }
+
+        public ImageSource SubImage
+        {
+            get
+            {
+                if (_image == null && _imagePath2 != null)
+                {
+                    _image = new BitmapImage(new Uri(CardCommon._baseUri, _imagePath2));
+                }
+                return _image;
+            }
+
+            set
+            {
+                _imagePath2 = null;
                 SetProperty(ref _image, value);
             }
         }
@@ -273,9 +299,10 @@ namespace BeHocThuoc.Data
 
         public SampleDataSource()
         {
-            var group1 = new Category("Động Vật",
-                                      "Động Vật",
-                                      "Assets/Animal/animal.jpg");
+            var group1 = new Category("Ñoäng Vaät",
+                                      "Ñoäng Vaät",
+                                      "Assets/Animal/animal.jpg",
+                                      "Assets/Animal/animal2.jpg");
             group1.Items.Add(new Card("Động-Vật-Item-1",
                                       "Assets/Animal/b_01.jpg",
                                       "Assets/Animal/f_01.jpg",
@@ -363,9 +390,10 @@ namespace BeHocThuoc.Data
             AllCards.Add(group1.LastItem);
             AllGroups.Add(group1);
 
-            var group2 = new Category("Đồ đạc trong nhà",
-                                      "Đồ đạc trong nhà",
-                                      "Assets/Funiture/funiture.jpg");
+            var group2 = new Category("Ñoà ñaïc trong nhaø",
+                                      "Ñoà ñaïc trong nhaø",
+                                      "Assets/Funiture/funiture.jpg",
+                                      "Assets/Funiture/funiture2.jpg");
             group2.Items.Add(new Card("Đồ-đạc-Item-1",
                                       "Assets/Funiture/b_01.jpg",
                                       "Assets/Funiture/f_01.jpg",
@@ -417,6 +445,116 @@ namespace BeHocThuoc.Data
                                       group2));
             AllCards.Add(group2.LastItem);
             AllGroups.Add(group2);
+
+            var group3 = new Category("Danh lam thaéng caûnh",
+                                      "Danh lam thaéng caûnh",
+                                      "Assets/Landmark/landmark.jpg",
+                                      "Assets/Landmark/landmark2.jpg");
+            group3.Items.Add(new Card("Danh-lam-Item-1",
+                                      "Assets/Landmark/b_01.jpg",
+                                      "Assets/Landmark/f_01.jpg",
+                                      group3));
+            AllCards.Add(group3.LastItem);
+            group3.Items.Add(new Card("Danh-lam-Item-2",
+                                      "Assets/Landmark/b_02.jpg",
+                                      "Assets/Landmark/f_02.jpg",
+                                      group3));
+            AllCards.Add(group3.LastItem);
+            group3.Items.Add(new Card("Danh-lam-Item-3",
+                                      "Assets/Landmark/b_03.jpg",
+                                      "Assets/Landmark/f_03.jpg",
+                                      group3));
+            AllCards.Add(group3.LastItem);
+            group3.Items.Add(new Card("Danh-lam-Item-4",
+                                      "Assets/Landmark/b_04.jpg",
+                                      "Assets/Landmark/f_04.jpg",
+                                      group3));
+            AllCards.Add(group3.LastItem);
+            group3.Items.Add(new Card("Danh-lam-Item-5",
+                                      "Assets/Landmark/b_05.jpg",
+                                      "Assets/Landmark/f_05.jpg",
+                                      group3));
+            AllCards.Add(group3.LastItem);
+            group3.Items.Add(new Card("Danh-lam-Item-6",
+                                      "Assets/Landmark/b_06.jpg",
+                                      "Assets/Landmark/f_06.jpg",
+                                      group3));
+            AllCards.Add(group3.LastItem);
+            group3.Items.Add(new Card("Danh-lam-Item-7",
+                                      "Assets/Landmark/b_07.jpg",
+                                      "Assets/Landmark/f_07.jpg",
+                                      group3));
+            AllCards.Add(group3.LastItem);
+            group3.Items.Add(new Card("Danh-lam-Item-8",
+                                      "Assets/Landmark/b_08.jpg",
+                                      "Assets/Landmark/f_08.jpg",
+                                      group3));
+            AllCards.Add(group3.LastItem);
+            group3.Items.Add(new Card("Danh-lam-Item-9",
+                                      "Assets/Landmark/b_09.jpg",
+                                      "Assets/Landmark/f_09.jpg",
+                                      group3));
+            AllCards.Add(group3.LastItem);
+         
+            AllCards.Add(group3.LastItem);
+            AllGroups.Add(group3);
+
+             var group4 = new Category("Rau Cuû",
+                                      "Rau Cuû",
+                                      "Assets/Vegetable/vegetable.jpg",
+                                      "Assets/Vegetable/vegetable2.jpg");
+            group4.Items.Add(new Card("Danh-lam-Item-1",
+                                      "Assets/Vegetable/b_01.jpg",
+                                      "Assets/Vegetable/f_01.jpg",
+                                      group4));
+            AllCards.Add(group4.LastItem);
+            group4.Items.Add(new Card("Danh-lam-Item-2",
+                                      "Assets/Vegetable/b_02.jpg",
+                                      "Assets/Vegetable/f_02.jpg",
+                                      group4));
+            AllCards.Add(group4.LastItem);
+            group4.Items.Add(new Card("Danh-lam-Item-3",
+                                      "Assets/Vegetable/b_03.jpg",
+                                      "Assets/Vegetable/f_03.jpg",
+                                      group4));
+            AllCards.Add(group4.LastItem);
+            group4.Items.Add(new Card("Danh-lam-Item-4",
+                                      "Assets/Vegetable/b_04.jpg",
+                                      "Assets/Vegetable/f_04.jpg",
+                                      group4));
+            AllCards.Add(group4.LastItem);
+            group4.Items.Add(new Card("Danh-lam-Item-5",
+                                      "Assets/Vegetable/b_05.jpg",
+                                      "Assets/Vegetable/f_05.jpg",
+                                      group4));
+            AllCards.Add(group4.LastItem);
+            group4.Items.Add(new Card("Danh-lam-Item-6",
+                                      "Assets/Vegetable/b_06.jpg",
+                                      "Assets/Vegetable/f_06.jpg",
+                                      group4));
+            AllCards.Add(group4.LastItem);
+            group4.Items.Add(new Card("Danh-lam-Item-7",
+                                      "Assets/Vegetable/b_07.jpg",
+                                      "Assets/Vegetable/f_07.jpg",
+                                      group4));
+            AllCards.Add(group4.LastItem);
+            group4.Items.Add(new Card("Danh-lam-Item-8",
+                                      "Assets/Vegetable/b_08.jpg",
+                                      "Assets/Vegetable/f_08.jpg",
+                                      group4));
+            AllCards.Add(group4.LastItem);
+            group4.Items.Add(new Card("Danh-lam-Item-9",
+                                      "Assets/Vegetable/b_09.jpg",
+                                      "Assets/Vegetable/f_09.jpg",
+                                      group4));
+            AllCards.Add(group4.LastItem);
+         
+            AllCards.Add(group4.LastItem);
+            AllGroups.Add(group4);
+
+
+
+
         }
 
         public ObservableCollection<Category> AllGroups

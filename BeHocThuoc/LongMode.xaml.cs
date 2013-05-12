@@ -101,40 +101,7 @@ namespace BeHocThuoc
             }
             if ((int) timeleft.TotalSeconds <= 0) {
                 timer.Stop();
-                if (cmd != null) cmd.Cancel();
-                if (test == false) {
-                    messageDialog1 = new MessageDialog("Bé đã sẵn sàng làm bài kiểm tra chưa?", "HẾT GIỜ RỒI!!!");
-                    messageDialog1.Commands.Add(new UICommand("Rồi",
-                                                              (command) =>
-                                                              Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
-                                                                                  () =>
-                                                                                  {
-                                                                                      Toogle_All_Cards();
-                                                                                      Start_Timer(DURATION);
-                                                                                      test = true;
-                                                                                  })));
-                    messageDialog1.Commands.Add(new UICommand("Chưa",
-                                                              (command) =>
-                                                              Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
-                                                                                  () => Start_Timer(10))));
-                    ;
-
-                    cmd = messageDialog1.ShowAsync();
-                } else {
-                    messageDialog1 = new MessageDialog("Bé có muốn chơi lại không?", "HẾT GIỜ RỒI!!!");
-                    messageDialog1.Commands.Add(new UICommand("Có", (command) =>
-                                                                    {
-                                                                        Frame.Navigate(typeof (QuickMode));
-                                                                        timer.Stop();
-                                                                    }));
-                    messageDialog1.Commands.Add(new UICommand("Không", (command) =>
-                                                                       {
-                                                                           Frame.Navigate(typeof (StartPage));
-                                                                           timer.Stop();
-                                                                       }));
-                    ;
-                    cmd = messageDialog1.ShowAsync();
-                }
+                TimesUpPopup.IsOpen = true;
             }
         }
 
@@ -149,17 +116,20 @@ namespace BeHocThuoc
         }
 
 
-        private void Toogle_All_Cards ()
-        {
-            foreach (var card in randomCards) {
-                card.DisplayImage = card.BackImage;
-            }
-        }
-
         protected override void GoBack (object sender, RoutedEventArgs e)
         {
             if (timer != null) timer.Stop();
             base.GoBack(sender, e);
+        }
+
+        private void OK_Clicked(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(TestPage), randomCards);
+        }
+
+        private void NotYet_Clicked(object sender, RoutedEventArgs e)
+        {
+            GameInitialize();
         }
     }
 }

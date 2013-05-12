@@ -1907,6 +1907,229 @@
             </Border>
         </Grid>
     </ControlTemplate>
+
+    <ControlTemplate x:Key="NextButton" TargetType="Button">
+        <Grid>
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualStateGroup.Transitions>
+                        <VisualTransition To="MouseOver" GeneratedDuration="0:0:0.1" />
+                        <VisualTransition To="Pressed" GeneratedDuration="0:0:0.1" />
+                    </VisualStateGroup.Transitions>
+                    <VisualState x:Name="Normal" />
+                    <VisualState x:Name="MouseOver">
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ButtonPressOut"
+                                                           Storyboard.TargetProperty="Visibility">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"></DiscreteObjectKeyFrame>
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="Pressed">
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ButtonPressIn"
+                                                           Storyboard.TargetProperty="Visibility">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"></DiscreteObjectKeyFrame>
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+            <Border x:Name="ButtonPlay" BorderThickness="1">
+                <Grid Width="308" Height="100">
+                    <Image Source="../Assets/tieptuc-up.png"></Image>
+                    <Image x:Name="ButtonPressOut" Source="../Assets/tieptuc-up.png" Visibility="Collapsed"></Image>
+                    <Image x:Name="ButtonPressIn" Source="../Assets/tieptuc-down.png" Visibility="Collapsed"></Image>
+                </Grid>
+            </Border>
+        </Grid>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="ReplayButton" TargetType="Button">
+        <Grid>
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualStateGroup.Transitions>
+                        <VisualTransition To="MouseOver" GeneratedDuration="0:0:0.1" />
+                        <VisualTransition To="Pressed" GeneratedDuration="0:0:0.1" />
+                    </VisualStateGroup.Transitions>
+                    <VisualState x:Name="Normal" />
+                    <VisualState x:Name="MouseOver">
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ButtonPressOut"
+                                                           Storyboard.TargetProperty="Visibility">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"></DiscreteObjectKeyFrame>
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="Pressed">
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ButtonPressIn"
+                                                           Storyboard.TargetProperty="Visibility">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"></DiscreteObjectKeyFrame>
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+            <Border x:Name="ButtonPlay" BorderThickness="1">
+                <Grid Width="150" Height="50">
+                    <Image Source="../Assets/choilai-up.png"></Image>
+                    <Image x:Name="ButtonPressOut" Source="../Assets/choilai-up.png" Visibility="Collapsed"></Image>
+                    <Image x:Name="ButtonPressIn" Source="../Assets/choilai-down.png" Visibility="Collapsed"></Image>
+                </Grid>
+            </Border>
+        </Grid>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="ReturnButton" TargetType="Button">
+        <Grid>
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualStateGroup.Transitions>
+                        <VisualTransition To="MouseOver" GeneratedDuration="0:0:0.1" />
+                        <VisualTransition To="Pressed" GeneratedDuration="0:0:0.1" />
+                    </VisualStateGroup.Transitions>
+                    <VisualState x:Name="Normal" />
+                    <VisualState x:Name="MouseOver">
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ButtonPressOut"
+                                                           Storyboard.TargetProperty="Visibility">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"></DiscreteObjectKeyFrame>
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="Pressed">
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ButtonPressIn"
+                                                           Storyboard.TargetProperty="Visibility">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"></DiscreteObjectKeyFrame>
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+            <Border x:Name="ButtonPlay" BorderThickness="1">
+                <Grid Width="150" Height="50">
+                    <Image Source="../Assets/khong-up.png"></Image>
+                    <Image x:Name="ButtonPressOut" Source="../Assets/khong-up.png" Visibility="Collapsed"></Image>
+                    <Image x:Name="ButtonPressIn" Source="../Assets/khong-down.png" Visibility="Collapsed"></Image>
+                </Grid>
+            </Border>
+        </Grid>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="OkButton" TargetType="Button">
+        <Grid>
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualStateGroup.Transitions>
+                        <VisualTransition To="MouseOver" GeneratedDuration="0:0:0.1" />
+                        <VisualTransition To="Pressed" GeneratedDuration="0:0:0.1" />
+                    </VisualStateGroup.Transitions>
+                    <VisualState x:Name="Normal" />
+                    <VisualState x:Name="MouseOver">
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ButtonPressOut"
+                                                           Storyboard.TargetProperty="Visibility">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"></DiscreteObjectKeyFrame>
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="Pressed">
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ButtonPressIn"
+                                                           Storyboard.TargetProperty="Visibility">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"></DiscreteObjectKeyFrame>
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+            <Border x:Name="ButtonPlay" BorderThickness="1">
+                <Grid Width="150" Height="50">
+                    <Image Source="../Assets/roi-up.png"></Image>
+                    <Image x:Name="ButtonPressOut" Source="../Assets/roi-up.png" Visibility="Collapsed"></Image>
+                    <Image x:Name="ButtonPressIn" Source="../Assets/roi-down.png" Visibility="Collapsed"></Image>
+                </Grid>
+            </Border>
+        </Grid>
+    </ControlTemplate>
+
+
+    <ControlTemplate x:Key="NotYetButton" TargetType="Button">
+        <Grid>
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualStateGroup.Transitions>
+                        <VisualTransition To="MouseOver" GeneratedDuration="0:0:0.1" />
+                        <VisualTransition To="Pressed" GeneratedDuration="0:0:0.1" />
+                    </VisualStateGroup.Transitions>
+                    <VisualState x:Name="Normal" />
+                    <VisualState x:Name="MouseOver">
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ButtonPressOut"
+                                                           Storyboard.TargetProperty="Visibility">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"></DiscreteObjectKeyFrame>
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="Pressed">
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ButtonPressIn"
+                                                           Storyboard.TargetProperty="Visibility">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"></DiscreteObjectKeyFrame>
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+            <Border x:Name="ButtonPlay" BorderThickness="1">
+                <Grid Width="150" Height="50">
+                    <Image Source="../Assets/chua-up.png"></Image>
+                    <Image x:Name="ButtonPressOut" Source="../Assets/chua-up.png" Visibility="Collapsed"></Image>
+                    <Image x:Name="ButtonPressIn" Source="../Assets/chua-down.png" Visibility="Collapsed"></Image>
+                </Grid>
+            </Border>
+        </Grid>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="HintButton" TargetType="Button">
+        <Grid>
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualStateGroup.Transitions>
+                        <VisualTransition To="MouseOver" GeneratedDuration="0:0:0.1" />
+                        <VisualTransition To="Pressed" GeneratedDuration="0:0:0.1" />
+                    </VisualStateGroup.Transitions>
+                    <VisualState x:Name="Normal" />
+                    <VisualState x:Name="MouseOver">
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ButtonPressOut"
+                                                           Storyboard.TargetProperty="Visibility">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"></DiscreteObjectKeyFrame>
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="Pressed">
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ButtonPressIn"
+                                                           Storyboard.TargetProperty="Visibility">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"></DiscreteObjectKeyFrame>
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+            <Border x:Name="ButtonPlay" BorderThickness="1">
+                <Grid Width="300" Height="100">
+                    <Image Source="../Assets/goiy-up.png"></Image>
+                    <Image x:Name="ButtonPressOut" Source="../Assets/goiy-up.png" Visibility="Collapsed"></Image>
+                    <Image x:Name="ButtonPressIn" Source="../Assets/goiy-down.png" Visibility="Collapsed"></Image>
+                </Grid>
+            </Border>
+        </Grid>
+    </ControlTemplate>
     <!-- overrides -->
     <SolidColorBrush x:Key="ListViewItemSelectedPointerOverBackgroundThemeBrush" Color="#00FFFFFF" />
     <SolidColorBrush x:Key="ListViewItemSelectedPointerOverBorderThemeBrush" Color="#80FFFFFF" />

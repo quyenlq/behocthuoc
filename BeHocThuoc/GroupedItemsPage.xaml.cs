@@ -33,6 +33,7 @@ namespace BeHocThuoc
             // TODO: Create an appropriate data model for your problem domain to replace the sample data
             var sampleDataGroups = SampleDataSource.GetGroups((String)navigationParameter);
             this.DefaultViewModel["Groups"] = sampleDataGroups;
+            this.groupGridView.ItemsSource = this.groupedItemsViewSource.View.CollectionGroups;
         }
 
         /// <summary>

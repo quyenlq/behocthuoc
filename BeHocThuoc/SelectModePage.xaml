@@ -23,7 +23,8 @@
                 </Grid.ColumnDefinitions>
                 <Button x:Name="backButton" Click="GoBack" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}"
                     Style="{StaticResource BackButtonStyle}" Margin="48,0,0,25" />
-                <Image Source="Assets/small-logo.png" Grid.Column="1" Margin="0,21,806,-21"></Image>
+                <TextBlock x:Name="pageTitle" Text="Beù Hoïc Thuoäc" Style="{StaticResource PageHeaderTextStyle}"
+                       Grid.Column="1" IsHitTestVisible="false" Margin="21,0,9,28" FontFamily="VfFree13" FontWeight="Bold" />
             </Grid>
             <Grid Height="550" Grid.Row="1" HorizontalAlignment="Center">
                 <Grid.ColumnDefinitions>
@@ -32,24 +33,19 @@
                 </Grid.ColumnDefinitions>
                 <Button Grid.Column="0" BorderThickness="0" Click="Quick_Clicked" >
                     <Grid>
-                        <Image Source="../Assets/quick.png" Width="400" Height="500" >
-                        </Image>
+                        <Image Source="/Assets/kho-up.png" Margin="112,440,108,10" Width="150" Height="50"></Image>
+                        <Image Source="../Assets/quick.png" Height="500" Margin="0,-50,0,50" />
                         <Grid Background="White" Opacity="0.1" Margin="0,430,0,0" ></Grid>
-                        <TextBlock Grid.Row="1" Text="DỄ" VerticalAlignment="Bottom" Foreground="Black"
-                               TextAlignment="Center" FontSize="50" >
-                        </TextBlock>
+
                     </Grid>
                 </Button>
 
 
                 <Button Grid.Column="1" BorderThickness="0" Click="Long_Clicked" >
                     <Grid>
-                        <Image Source="../Assets/long.png" Width="400" Height="500" >
-                        </Image>
+                        <Image Source="/Assets/de-up.png" Margin="108,440,102,10" Width="160" Height="50" RenderTransformOrigin="0.262,0.4"></Image>
+                        <Image Source="../Assets/long.png" Height="500" Margin="0,-50,0,50" />
                         <Grid Background="White" Opacity="0.1" Margin="0,430,0,0" ></Grid>
-                        <TextBlock Grid.Row="1" Text="KHÓ" VerticalAlignment="Bottom" Foreground="Black"
-                               TextAlignment="Center" FontSize="50" >
-                        </TextBlock>
                     </Grid>
                 </Button>
                

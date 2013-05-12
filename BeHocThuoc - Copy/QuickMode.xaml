@@ -1,0 +1,58 @@
+﻿<common:LayoutAwarePage xmlns:common="using:BeHocThuoc.Common" x:Class="BeHocThuoc.QuickMode"
+                        DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
+                        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="using:BeHocThuoc"
+                        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                        xmlns:data="using:BeHocThuoc.Data" mc:Ignorable="d" >
+    <Page.Resources>
+        <!--
+            Collection of grouped items displayed by this page, bound to a subset
+            of the complete item list because items in groups cannot be virtualized
+        -->
+        <CollectionViewSource x:Name="groupedItemsViewSource" Source="{Binding Cards}" ></CollectionViewSource>
+
+    </Page.Resources>
+
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Assets/background01.png" ></ImageBrush>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="140" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <GridView Name="PlayGround" ItemsSource="{Binding}" Grid.Row="1" VerticalAlignment="Center"
+                  HorizontalAlignment="Center" >
+            <GridView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Width="430" Height="260" Source="{Binding DisplayImage}"
+                               Tapped="Toogle_Card" ></Image>
+                    </StackPanel>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="backButton" Click="GoBack"
+                    IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}"
+                    Style="{StaticResource BackButtonStyle}" Margin="48,0,0,25" />
+
+            <TextBlock x:Name="pageTitle" Text="Bé Học Thuộc" Style="{StaticResource PageHeaderTextStyle}" Grid.Column="1" IsHitTestVisible="false" Margin="21,0,9,28"/>
+
+            <TextBlock Style="{StaticResource PageHeaderTextStyle}" HorizontalAlignment="Center"
+                       VerticalAlignment="Center" TextWrapping="Wrap" Text="29" Height="45" Width="68" FontFamily="Pointy"
+                       Name="TimeField" Margin="1105,71,73,24" Grid.Column="1" />
+        </Grid>
+
+    </Grid>
+</common:LayoutAwarePage>

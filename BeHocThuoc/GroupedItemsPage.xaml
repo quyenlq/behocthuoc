@@ -24,13 +24,15 @@
             ItemsPath="TopItems"
             d:Source="{Binding AllGroups, Source={d:DesignInstance Type=data:SampleDataSource, IsDesignTimeCreatable=True}}"/>
     </Page.Resources>
-
+    
     <!--
         This grid acts as a root panel for the page that defines two rows:
         * Row 0 contains the back button and page title
         * Row 1 contains the rest of the page layout
     -->
+    
     <Grid Style="{StaticResource LayoutRootStyle}">
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="140"/>
             <RowDefinition Height="*"/>
@@ -39,13 +41,13 @@
             <ImageBrush ImageSource="Assets/flowbackground.jpg"></ImageBrush>
         </Grid.Background>
 
-        <!-- Horizontal scrolling grid used in most view states -->
-        <GridView
+        <SemanticZoom x:Name="semanticZoom" Grid.Row="1">
+            <SemanticZoom.ZoomedInView>
+                <GridView
             x:Name="itemGridView"
             AutomationProperties.AutomationId="ItemGridView"
             AutomationProperties.Name="Grouped Items"
-            Grid.RowSpan="2"
-            Padding="116,137,40,46"
+            Padding="116,0,40,46"
             ItemsSource="{Binding Source={StaticResource groupedItemsViewSource}}"
             ItemTemplate="{StaticResource CustomStandard250x250ItemTemplate}"
             SelectionMode="None"
@@ -53,37 +55,56 @@
             IsItemClickEnabled="True"
             ItemClick="ItemView_ItemClick">
 
-            <GridView.ItemsPanel>
-                <ItemsPanelTemplate>                        
-                    <VirtualizingStackPanel Orientation="Horizontal"/>
-                </ItemsPanelTemplate>
-            </GridView.ItemsPanel>
-            <GridView.GroupStyle>
-                <GroupStyle>
-                    <GroupStyle.HeaderTemplate>
-                        <DataTemplate>
-                            <Grid Margin="1,0,0,6">
-                                <Button
+                    <GridView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </GridView.ItemsPanel>
+                    <GridView.GroupStyle>
+                        <GroupStyle>
+                            <GroupStyle.HeaderTemplate>
+                                <DataTemplate>
+                                    <Grid Margin="1,0,0,6">
+                                        <Button
                                     AutomationProperties.Name="Group Title"
                                     Click="Header_Click"
                                     Style="{StaticResource TextPrimaryButtonStyle}" >
-                                    <StackPanel Orientation="Horizontal" >
-                                        
-                                        <TextBlock Text="{Binding UniqueId}" Margin="3,-7,10,10" Style="{StaticResource GroupHeaderTextStyle}" />
-                                        <TextBlock Text="{StaticResource ChevronGlyph}" FontFamily="Segoe UI Symbol" Margin="0,-7,0,10" Style="{StaticResource GroupHeaderTextStyle}"/>
-                                    </StackPanel>
-                                </Button>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock
+                                                    Text="{Binding UniqueId}" Margin="3,-7,10,10" Style="{StaticResource GroupHeaderTextStyle}" FontFamily="VfFree13" />
+                                                <TextBlock
+                                                    Text="{StaticResource ChevronGlyph}" FontFamily="Segoe UI Symbol" Margin="0,-7,0,10"
+                                                    Style="{StaticResource GroupHeaderTextStyle}" />
+                                            </StackPanel>
+                                        </Button>
+                                    </Grid>
+                                </DataTemplate>
+                            </GroupStyle.HeaderTemplate>
+                            <GroupStyle.Panel>
+                                <ItemsPanelTemplate>
+                                    <VariableSizedWrapGrid Orientation="Vertical" Margin="0,0,80,0"/>
+                                </ItemsPanelTemplate>
+                            </GroupStyle.Panel>
+                        </GroupStyle>
+                    </GridView.GroupStyle>
+                </GridView>
+                </SemanticZoom.ZoomedInView>
+            <SemanticZoom.ZoomedOutView>
+                <GridView x:Name="groupGridView" Margin="116,0,40,46">
+                    <GridView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Image Source="{Binding Group.SubImage}" Width="300" Height="500" Stretch="UniformToFill" />
+                                <TextBlock Text="{Binding Group.Title}" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextStyle}" FontSize="28" Margin="12" FontFamily="VfFree13"/>
                             </Grid>
                         </DataTemplate>
-                    </GroupStyle.HeaderTemplate>
-                    <GroupStyle.Panel>
-                        <ItemsPanelTemplate>
-                            <VariableSizedWrapGrid Orientation="Vertical" Margin="0,0,80,0"/>
-                        </ItemsPanelTemplate>
-                    </GroupStyle.Panel>
-                </GroupStyle>
-            </GridView.GroupStyle>
-        </GridView>
+                    </GridView.ItemTemplate>
+                </GridView>
+            </SemanticZoom.ZoomedOutView>
+        </SemanticZoom>
+
+        <!-- Horizontal scrolling grid used in most view states -->
+
 
         <!-- Vertical scrolling list only used when snapped -->
         <ListView
@@ -130,7 +151,7 @@
             </Grid.ColumnDefinitions>
             <Button x:Name="backButton" Click="GoBack" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}"
                     Style="{StaticResource BackButtonStyle}" Margin="48,0,0,25" />
-            <Image Source="Assets/small-logo.png" Grid.Column="1" Margin="0,21,806,-21"></Image>
+            <TextBlock x:Name="pageTitle" Text="Beù Hoïc Thuoäc" Style="{StaticResource PageHeaderTextStyle}" Grid.Column="1" IsHitTestVisible="false" Margin="21,0,9,28" FontFamily="VfFree13"/>
         </Grid>
 
         <VisualStateManager.VisualStateGroups>
@@ -176,5 +197,9 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
+        
+        
     </Grid>
+    
+    
 </common:LayoutAwarePage>
