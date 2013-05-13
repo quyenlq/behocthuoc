@@ -141,6 +141,7 @@ namespace BeHocThuoc.Data
         private readonly ObservableCollection<Card> _items = new ObservableCollection<Card>();
         private readonly ObservableCollection<Card> _topItem = new ObservableCollection<Card>();
         private ImageSource _image;
+        private ImageSource _image2;
         private string _imagePath;
         private string _imagePath2;
         private string _title;
@@ -190,17 +191,17 @@ namespace BeHocThuoc.Data
         {
             get
             {
-                if (_image == null && _imagePath2 != null)
+                if (_image2 == null && _imagePath2 != null)
                 {
-                    _image = new BitmapImage(new Uri(CardCommon._baseUri, _imagePath2));
+                    _image2 = new BitmapImage(new Uri(CardCommon._baseUri, _imagePath2));
                 }
-                return _image;
+                return _image2;
             }
 
             set
             {
                 _imagePath2 = null;
-                SetProperty(ref _image, value);
+                SetProperty(ref _image2, value);
             }
         }
 
@@ -503,47 +504,47 @@ namespace BeHocThuoc.Data
                                       "Rau Cuû",
                                       "Assets/Vegetable/vegetable.jpg",
                                       "Assets/Vegetable/vegetable2.jpg");
-            group4.Items.Add(new Card("Danh-lam-Item-1",
+            group4.Items.Add(new Card("Rau-cu-Item-1",
                                       "Assets/Vegetable/b_01.jpg",
                                       "Assets/Vegetable/f_01.jpg",
                                       group4));
             AllCards.Add(group4.LastItem);
-            group4.Items.Add(new Card("Danh-lam-Item-2",
+            group4.Items.Add(new Card("Rau-cu-Item-2",
                                       "Assets/Vegetable/b_02.jpg",
                                       "Assets/Vegetable/f_02.jpg",
                                       group4));
             AllCards.Add(group4.LastItem);
-            group4.Items.Add(new Card("Danh-lam-Item-3",
+            group4.Items.Add(new Card("Rau-cu-Item-3",
                                       "Assets/Vegetable/b_03.jpg",
                                       "Assets/Vegetable/f_03.jpg",
                                       group4));
             AllCards.Add(group4.LastItem);
-            group4.Items.Add(new Card("Danh-lam-Item-4",
+            group4.Items.Add(new Card("Rau-cu-Item-4",
                                       "Assets/Vegetable/b_04.jpg",
                                       "Assets/Vegetable/f_04.jpg",
                                       group4));
             AllCards.Add(group4.LastItem);
-            group4.Items.Add(new Card("Danh-lam-Item-5",
+            group4.Items.Add(new Card("Rau-cu-Item-5",
                                       "Assets/Vegetable/b_05.jpg",
                                       "Assets/Vegetable/f_05.jpg",
                                       group4));
             AllCards.Add(group4.LastItem);
-            group4.Items.Add(new Card("Danh-lam-Item-6",
+            group4.Items.Add(new Card("Rau-cu-Item-6",
                                       "Assets/Vegetable/b_06.jpg",
                                       "Assets/Vegetable/f_06.jpg",
                                       group4));
             AllCards.Add(group4.LastItem);
-            group4.Items.Add(new Card("Danh-lam-Item-7",
+            group4.Items.Add(new Card("Rau-cu-Item-7",
                                       "Assets/Vegetable/b_07.jpg",
                                       "Assets/Vegetable/f_07.jpg",
                                       group4));
             AllCards.Add(group4.LastItem);
-            group4.Items.Add(new Card("Danh-lam-Item-8",
+            group4.Items.Add(new Card("Rau-cu-Item-8",
                                       "Assets/Vegetable/b_08.jpg",
                                       "Assets/Vegetable/f_08.jpg",
                                       group4));
             AllCards.Add(group4.LastItem);
-            group4.Items.Add(new Card("Danh-lam-Item-9",
+            group4.Items.Add(new Card("Rau-cu-Item-9",
                                       "Assets/Vegetable/b_09.jpg",
                                       "Assets/Vegetable/f_09.jpg",
                                       group4));

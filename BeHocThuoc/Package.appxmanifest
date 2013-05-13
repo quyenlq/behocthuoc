@@ -15,9 +15,12 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="BeHocThuoc.App">
-      <VisualElements DisplayName="BeHocThuoc" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="BeHocThuoc" ForegroundText="light" BackgroundColor="#464646">
-        <DefaultTile ShowName="allLogos" />
-        <SplashScreen Image="Assets\SplashScreen.png" />
+      <VisualElements DisplayName="BeHocThuoc" Logo="logo150x150.png" SmallLogo="logo30x30.png" Description="BeHocThuoc" ForegroundText="dark" BackgroundColor="#0088CC">
+        <DefaultTile ShowName="logoOnly" ShortName="Bé Học Thuộc" WideLogo="logo300x150.png" />
+        <SplashScreen Image="splashlogo.png" BackgroundColor="#0088CC" />
+        <InitialRotationPreference>
+          <Rotation Preference="landscape" />
+        </InitialRotationPreference>
       </VisualElements>
     </Application>
   </Applications>

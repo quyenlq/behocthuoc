@@ -33,8 +33,8 @@
                 </Grid.ColumnDefinitions>
                 <Button Grid.Column="0" BorderThickness="0" Click="Quick_Clicked" >
                     <Grid>
-                        <Image Source="/Assets/de-up.png" Margin="112,440,108,10" Width="150" Height="50"></Image>
-                        <Image Source="../Assets/quick.png" Height="500" Margin="0,-50,0,50" />
+                        <Image Source="/Assets/de-up.png" Margin="100,470,100,10" Height="60"/>
+                        <Image Source="../Assets/quick.png" Height="500" Margin="0,0,0,50" />
                         <Grid Background="White" Opacity="0.1" Margin="0,430,0,0" ></Grid>
 
                     </Grid>
@@ -43,8 +43,8 @@
 
                 <Button Grid.Column="1" BorderThickness="0" Click="Long_Clicked" >
                     <Grid>
-                        <Image Source="/Assets/kho-up.png" Margin="108,440,102,10" Width="160" Height="50" RenderTransformOrigin="0.262,0.4"></Image>
-                        <Image Source="../Assets/long.png" Height="500" Margin="0,-50,0,50" />
+                        <Image Source="/Assets/kho-up.png" Margin="100,470,100,10" Width="160" Height="60" RenderTransformOrigin="0.262,0.4"></Image>
+                        <Image Source="../Assets/long.png" Height="500" Margin="0,0,0,50" />
                         <Grid Background="White" Opacity="0.1" Margin="0,430,0,0" ></Grid>
                     </Grid>
                 </Button>

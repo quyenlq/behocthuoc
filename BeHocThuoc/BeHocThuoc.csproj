@@ -168,6 +168,7 @@
     <Content Include="Assets\Animal\b_16.jpg" />
     <Content Include="Assets\Animal\b_17.jpg" />
     <Content Include="Assets\background01.png" />
+    <Content Include="Assets\background02.jpg" />
     <Content Include="Assets\big-logo.png" />
     <Content Include="Assets\choilai-down.png" />
     <Content Include="Assets\choilai-up.png" />
@@ -243,6 +244,8 @@
     <Content Include="Assets\Landmark\f_07.jpg" />
     <Content Include="Assets\Landmark\f_08.jpg" />
     <Content Include="Assets\Landmark\f_09.jpg" />
+    <Content Include="Assets\Landmark\landmark.jpg" />
+    <Content Include="Assets\Landmark\landmark2.jpg" />
     <Content Include="Assets\Logo.png" />
     <Content Include="Assets\long.png" />
     <Content Include="Assets\quick.png" />
@@ -282,6 +285,13 @@
     <Content Include="Assets\Vegetable\f_07.jpg" />
     <Content Include="Assets\Vegetable\f_08.jpg" />
     <Content Include="Assets\Vegetable\f_09.jpg" />
+    <Content Include="Assets\Vegetable\vegetable.jpg" />
+    <Content Include="Assets\Vegetable\vegetable2.jpg" />
+    <Content Include="books.png" />
+    <Content Include="logo150x150.png" />
+    <Content Include="logo300x150.png" />
+    <Content Include="logo30x30.png" />
+    <Content Include="splashlogo.png" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

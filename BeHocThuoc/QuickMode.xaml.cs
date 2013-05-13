@@ -106,7 +106,7 @@ namespace BeHocThuoc
         private void Toogle_Card(object sender, TappedRoutedEventArgs e)
         {
             var card = PlayGround.SelectedItem as Card;
-            if (card == null) return;
+            if (card == null || TimesUpPopup.IsOpen==true) return;
             if (card.DisplayImage == card.BackImage)
             {
                 card.DisplayImage = card.FrontImage;
